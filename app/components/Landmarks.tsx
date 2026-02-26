@@ -7,7 +7,7 @@ import Container from "@/app/components/Container";
 const projects = [
   {
     title:
-      "Responsive landing page built with Tailwind CSS, focus clean layout and modern utility-first styling",
+      "Responsive landing page built with Tailwind CSS, clean layout and modern utility-first styling",
     description:
       "Focused on clean layout, adaptive design, and modern utility-first styling. Implemented responsive breakpoints and reusable utility patterns to ensure scalability and performance.",
     techStack: ["HTML", "CSS", "Tailwind CSS", "Responsive Design Principles"],
@@ -87,7 +87,7 @@ export default function Landmarks() {
       {/* Text */}
       <div className="flex-1 flex flex-col justify-between">
         <h3
-          className="text-base md:text-2xl font-semibold leading-tight tracking-tight"
+          className="text-base md:text-2xl font-medium leading-tight tracking-tight"
           style={{ fontFamily: "var(--font-inter)", color: "#000000" }}
         >
           {project.title}

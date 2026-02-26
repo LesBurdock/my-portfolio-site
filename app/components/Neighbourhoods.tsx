@@ -11,7 +11,7 @@ const cards = [
   },
   {
     title: "Green Park",
-    body: "Urban & Urban and environmental insight informing design decisions with context and clarity.",
+    body: "Urban and environmental insight informing design decisions with context and clarity.",
   },
 ];
 
@@ -41,7 +41,7 @@ export default function Neighbourhoods() {
       <Container>
         {/* Heading */}
         <h2
-          className="text-2xl font-bold leading-snug w-full md:text-3xl md:w-[75%]"
+          className="text-2xl font-medium leading-snug w-full md:text-3xl md:w-[75%]"
           style={{ fontFamily: "var(--font-playfair)", color: "#000000" }}
         >
           <em>My Neighbourhoods</em> explores the disciplines that shape my
@@ -51,7 +51,7 @@ export default function Neighbourhoods() {
 
         {/* Pull quote */}
         <p
-          className="mt-16 text-base md:text-right md:mt-20"
+          className="mt-16 text-base text-center md:text-right md:mt-20"
           style={{ color: "#D88C5A" }}
         >
           Think of my work as a small city, and like any good city, built from
@@ -66,7 +66,7 @@ export default function Neighbourhoods() {
               className="rounded-2xl p-8 w-full max-w-[400px] mx-auto md:flex-1 md:mx-0"
               style={{
                 backgroundColor: "#FFFFFF",
-                border: "1px solid #E8E8E8",
+                border: "0.5px solid #E8E8E8",
               }}
             >
               {/* Icon circle */}
@@ -79,7 +79,7 @@ export default function Neighbourhoods() {
 
               {/* Title */}
               <h3
-                className="mt-10 text-lg font-bold"
+                className="mt-10 text-lg font-medium"
                 style={{ color: "#000000" }}
               >
                 {card.title}
@@ -87,7 +87,7 @@ export default function Neighbourhoods() {
 
               {/* Body */}
               <p
-                className="mt-3 text-sm leading-relaxed"
+                className="mt-3 text-sm leading-relaxed font-light"
                 style={{ color: "#9D9D9D" }}
               >
                 {card.body}

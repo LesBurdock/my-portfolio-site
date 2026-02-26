@@ -51,7 +51,7 @@ export default function Hero() {
             style={{ color: "#9D9D9D" }}
           >
             I&apos;m a front-end developer blending design, urban insight,
-            and creativity<br></br> to build impactful, responsive websites.
+            and creativity to build impactful, responsive websites.
           </p>
 
           <a
