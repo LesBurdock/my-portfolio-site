@@ -47,7 +47,7 @@ export default function Hero() {
           </h1>
 
           <p
-            className="mb-10 text-base leading-relaxed"
+            className="mb-10 text-base leading-relaxed md:max-w-[50%]"
             style={{ color: "#9D9D9D" }}
           >
             I&apos;m a front-end developer blending design, urban insight,
