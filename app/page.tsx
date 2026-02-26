@@ -1,9 +1,17 @@
+import Hero from "@/app/components/Hero";
+import Neighbourhoods from "@/app/components/Neighbourhoods";
+import Landmarks from "@/app/components/Landmarks";
+import Toolkit from "@/app/components/Toolkit";
+import Contact from "@/app/components/Contact";
+
 export default function Home() {
   return (
-    <main className="flex min-h-screen items-center justify-center bg-black text-white">
-      <h1 className="text-4xl font-bold text-[#D88C5A]">
-        My New Project
-      </h1>
+    <main>
+      <Hero />
+      <Neighbourhoods />
+      <Landmarks />
+      <Toolkit />
+      <Contact />
     </main>
   );
 }
