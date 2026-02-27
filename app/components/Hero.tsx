@@ -56,8 +56,7 @@ export default function Hero() {
 
           <a
             href="#work"
-            className="inline-block rounded-full px-6 py-3 text-sm font-medium text-white transition-opacity hover:opacity-90"
-            style={{ backgroundColor: "#D88C5A" }}
+            className="inline-block rounded-full px-6 py-3 text-sm font-medium text-white transition-opacity hover:opacity-90 bg-terracotta"
           >
             See my Work
           </a>

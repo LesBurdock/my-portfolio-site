@@ -3,6 +3,7 @@
 import { useRef, useState } from "react";
 import Image from "next/image";
 import Container from "@/app/components/Container";
+import FadeIn from "@/app/components/FadeIn";
 
 const projects = [
   {
@@ -13,7 +14,7 @@ const projects = [
     techStack: ["HTML", "CSS", "Tailwind CSS", "Responsive Design Principles"],
     image: "/images/space_screenshot.png",
     imageAlt: "Space travel landing page screenshot",
-    href: "#",
+    href: "https://ui-design-web.onrender.com/destinations",
   },
   {
     title: "Frontend UI implementation using Next.js and React",
@@ -22,7 +23,7 @@ const projects = [
     techStack: ["Next.js", "React", "CSS", "Responsive Design"],
     image: "/images/loop_screenshots.png",
     imageAlt: "Loop Studios website screenshot",
-    href: "#",
+    href: "https://lesburdock.github.io/Loop_frontend/src/",
   },
   {
     title:
@@ -32,7 +33,7 @@ const projects = [
     techStack: ["Ruby on Rails", "PostgreSQL", "Devise", "MVC"],
     image: "/images/blog_screenshot.png",
     imageAlt: "Blogr application screenshot",
-    href: "#",
+    href: "https://rails-blog-hjbe.onrender.com/",
   },
 ];
 
@@ -52,7 +53,8 @@ function ChevronRight() {
   );
 }
 
-const bgColors = ["#F5F5F0", "#FFFFFF", "#F5F5F0"];
+// CSS custom properties resolve correctly in inline style strings
+const bgColors = ["var(--color-background)", "#FFFFFF", "var(--color-background)"];
 
 export default function Landmarks() {
   const scrollRef = useRef<HTMLDivElement>(null);
@@ -88,25 +90,25 @@ export default function Landmarks() {
       <div className="flex-1 flex flex-col justify-between">
         <h3
           className="text-base md:text-2xl font-medium leading-tight tracking-tight"
-          style={{ fontFamily: "var(--font-inter)", color: "#000000" }}
+          style={{ fontFamily: "var(--font-inter)", color: "var(--color-text-primary)" }}
         >
           {project.title}
         </h3>
 
-        <p className="mt-4 text-sm leading-relaxed" style={{ color: "#9D9D9D" }}>
+        <p className="mt-4 text-sm leading-relaxed" style={{ color: "var(--color-text-secondary)" }}>
           {project.description}
         </p>
 
-        <p className="mt-4 text-sm" style={{ color: "#9D9D9D" }}>
+        <p className="mt-4 text-sm" style={{ color: "var(--color-text-secondary)" }}>
           Tech Stack: {project.techStack.join(" · ")}
         </p>
 
         <a
           href={project.href}
-          className="mt-6 inline-block text-sm font-medium transition-opacity hover:opacity-70"
-          style={{ color: "#D88C5A" }}
+          className="mt-6 inline-flex items-center gap-1.5 text-sm font-medium text-terracotta group"
         >
-          View Project →
+          View Project
+          <span className="inline-block transition-transform duration-200 group-hover:translate-x-1">→</span>
         </a>
       </div>
     </div>
@@ -115,15 +117,17 @@ export default function Landmarks() {
   return (
     <section id="work">
       {/* Section heading */}
-      <div style={{ backgroundColor: "#F5F5F0" }}>
+      <div className="bg-background">
         <Container className="pt-20 pb-12 md:pt-24 md:pb-16">
-          <h2
-            className="text-2xl font-bold leading-snug md:text-3xl"
-            style={{ fontFamily: "var(--font-playfair)", color: "#000000" }}
-          >
-            <em>Landmarks</em> that have defined my path from city planning to{" "}
-            <em>web development.</em>
-          </h2>
+          <FadeIn>
+            <h2
+              className="text-2xl font-bold leading-snug md:text-3xl"
+              style={{ fontFamily: "var(--font-playfair)", color: "var(--color-text-primary)" }}
+            >
+              <em>Landmarks</em> that have defined my path from city planning to{" "}
+              <em>web development.</em>
+            </h2>
+          </FadeIn>
         </Container>
       </div>
 
@@ -153,7 +157,7 @@ export default function Landmarks() {
               className="h-2.5 rounded-full transition-all duration-300"
               style={{
                 width: i === current ? "32px" : "10px",
-                backgroundColor: i === current ? "#D88C5A" : "#C4C4C4",
+                backgroundColor: i === current ? "var(--color-terracotta)" : "#C4C4C4",
               }}
               aria-label={`Go to project ${i + 1}`}
             />
@@ -166,10 +170,12 @@ export default function Landmarks() {
         {projects.map((project, i) => (
           <div
             key={project.title}
-            style={{ backgroundColor: i % 2 === 0 ? "#F5F5F0" : "#FFFFFF" }}
+            style={{ backgroundColor: i % 2 === 0 ? "var(--color-background)" : "#FFFFFF" }}
           >
             <Container className="py-20">
-              <ProjectCard project={project} i={i} />
+              <FadeIn delay={100}>
+                <ProjectCard project={project} i={i} />
+              </FadeIn>
             </Container>
           </div>
         ))}

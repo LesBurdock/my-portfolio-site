@@ -1,4 +1,5 @@
 import Container from "@/app/components/Container";
+import FadeIn from "@/app/components/FadeIn";
 
 const items = [
   {
@@ -21,17 +22,18 @@ const items = [
 function Connector() {
   return (
     <div className="flex flex-col items-center my-8">
-      <div className="w-px h-[120px]" style={{ backgroundColor: "#D88C5A" }} />
+      <div className="w-px h-[120px] bg-terracotta" />
       <svg
         width="10"
         height="6"
         viewBox="0 0 10 6"
         fill="none"
         xmlns="http://www.w3.org/2000/svg"
+        aria-hidden="true"
       >
         <path
           d="M1 1L5 5L9 1"
-          stroke="#D88C5A"
+          stroke="var(--color-terracotta)"
           strokeWidth="1.5"
           strokeLinecap="round"
           strokeLinejoin="round"
@@ -46,49 +48,45 @@ export default function Toolkit() {
     <section className="bg-white py-16 md:py-24">
       <Container>
         {/* Heading */}
-        <h2
-          className="text-2xl font-bold leading-snug md:text-3xl"
-          style={{ fontFamily: "var(--font-playfair)", color: "#000000" }}
-        >
-          The <em>technical toolkit</em> I&apos;ve built from my experiences and projects
-        </h2>
+        <FadeIn>
+          <h2
+            className="text-2xl font-bold leading-snug md:text-3xl"
+            style={{ fontFamily: "var(--font-playfair)", color: "var(--color-text-primary)" }}
+          >
+            The <em>technical toolkit</em> I&apos;ve built from my experiences and projects
+          </h2>
+        </FadeIn>
 
-        {/* Timeline */}
+        {/* Timeline — staggered */}
         <div className="mt-16 flex flex-col items-center md:mt-24">
           {items.map((item, i) => (
-            <div key={item.number} className="flex flex-col items-center">
+            <FadeIn key={item.number} delay={i * 150} className="flex flex-col items-center">
               {/* Outlined circle with number */}
               <div
                 className="flex h-20 w-20 items-center justify-center rounded-full"
-                style={{ border: "1.5px solid #D88C5A" }}
+                style={{ border: "1.5px solid var(--color-terracotta)" }}
               >
                 <span
-                  className="text-xl font-bold"
-                  style={{ fontFamily: "var(--font-playfair)", color: "#D88C5A" }}
+                  className="text-xl font-bold text-terracotta"
+                  style={{ fontFamily: "var(--font-playfair)" }}
                 >
                   {item.number}
                 </span>
               </div>
 
               {/* Category label */}
-              <p
-                className="mt-6 text-xs font-medium tracking-widest uppercase"
-                style={{ color: "#D88C5A" }}
-              >
+              <p className="mt-6 text-xs font-medium tracking-widest uppercase text-terracotta">
                 {item.label}
               </p>
 
               {/* Skills */}
-              <p
-                className="mt-2 max-w-[320px] text-center text-sm"
-                style={{ color: "#D88C5A" }}
-              >
+              <p className="mt-2 max-w-[320px] text-center text-sm text-terracotta">
                 {item.skills.join(", ")}
               </p>
 
               {/* Connector line + arrow — not after last item */}
               {i < items.length - 1 && <Connector />}
-            </div>
+            </FadeIn>
           ))}
         </div>
       </Container>
