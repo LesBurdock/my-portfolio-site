@@ -11,7 +11,7 @@ export default function Contact() {
   const [state, formAction, isPending] = useActionState(sendMessage, initialState);
 
   return (
-    <footer style={{ backgroundColor: "#D88C5A" }} className="py-16 md:py-24">
+    <footer className="bg-terracotta py-16 md:py-24">
       <Container>
         <div className="grid grid-cols-1 gap-16 md:grid-cols-2 md:gap-20">
 
@@ -21,7 +21,7 @@ export default function Contact() {
               className="text-4xl font-bold leading-tight md:text-5xl"
               style={{ fontFamily: "var(--font-playfair)", color: "#FFFFFF" }}
             >
-              Lets <em>build something</em> impactful together
+              Let&apos;s <em>build something</em> impactful together
             </h2>
 
             <p
@@ -36,7 +36,7 @@ export default function Contact() {
             <div className="relative mt-10 h-55 w-55 overflow-hidden">
               <Image
                 src="/images/portrait.jpg"
-                alt="Portrait"
+                alt="Lesley Burdock"
                 fill
                 className="object-cover object-top scale-[1]"
               />
@@ -49,12 +49,14 @@ export default function Contact() {
             {/* Name */}
             <div className="flex flex-col">
               <label
+                htmlFor="name"
                 className="text-sm font-medium"
                 style={{ fontFamily: "var(--font-inter)", color: "#FFFFFF" }}
               >
                 Name
               </label>
               <input
+                id="name"
                 type="text"
                 name="name"
                 placeholder="Full Name"
@@ -67,12 +69,14 @@ export default function Contact() {
             {/* Email */}
             <div className="mt-8 flex flex-col">
               <label
+                htmlFor="email"
                 className="text-sm font-medium"
                 style={{ fontFamily: "var(--font-inter)", color: "#FFFFFF" }}
               >
                 Email Address
               </label>
               <input
+                id="email"
                 type="email"
                 name="email"
                 placeholder="Email Address"
@@ -85,12 +89,14 @@ export default function Contact() {
             {/* Message */}
             <div className="mt-8 flex flex-col">
               <label
+                htmlFor="message"
                 className="text-sm font-medium"
                 style={{ fontFamily: "var(--font-inter)", color: "#FFFFFF" }}
               >
                 Message
               </label>
               <textarea
+                id="message"
                 name="message"
                 placeholder="Your Message"
                 rows={6}
@@ -101,19 +107,23 @@ export default function Contact() {
             </div>
 
             {/* Error message */}
-            {state.error && (
-              <p
-                className="mt-6 text-sm text-white/80"
-                style={{ fontFamily: "var(--font-inter)" }}
-              >
-                {state.error}
-              </p>
-            )}
+            <div aria-live="polite" aria-atomic="true">
+              {state.error && (
+                <p
+                  className="mt-6 text-sm text-white/80"
+                  style={{ fontFamily: "var(--font-inter)" }}
+                >
+                  {state.error}
+                </p>
+              )}
+            </div>
 
             {/* Submit */}
             <div className="mt-10">
               {state.success ? (
                 <p
+                  role="status"
+                  aria-live="polite"
                   className="text-sm text-white"
                   style={{ fontFamily: "var(--font-inter)" }}
                 >

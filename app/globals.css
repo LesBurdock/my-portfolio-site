@@ -1,20 +1,24 @@
 @import "tailwindcss";
 
+/* Text color tokens — used via var() in inline styles */
 :root {
-  --color-terracotta: #D88C5A;
-  --color-background: #F5F5F0;
-  --color-ellipse: #D0CECE;
   --color-text-primary: #000000;
-  --color-text-secondary: #9D9D9D;
+  --color-text-secondary: #6B6B6B;
   --color-text-muted: #D9D9D9;
 }
 
+/* Tailwind theme tokens — direct values, no var() indirection */
 @theme inline {
-  --color-terracotta: var(--color-terracotta);
-  --color-background: var(--color-background);
-  --color-ellipse: var(--color-ellipse);
+  --color-terracotta: #B84D00;
+  --color-background: #F5F5F0;
+  --color-ellipse: #D0CECE;
+  /* font vars are fine as var() — set at runtime by Next.js */
   --font-sans: var(--font-inter);
   --font-heading: var(--font-playfair);
+}
+
+html {
+  scroll-behavior: smooth;
 }
 
 body {
